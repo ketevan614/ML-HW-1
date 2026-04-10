@@ -31,13 +31,7 @@ ML-HW-1/
 ├── README.md
 └── requirements.txt
 ```
-model_experiment.ipynb 
-    EDA, data cleaning, feature engineering, feature selection, მოდელების ტრენინგი და MLflow logging
-model_inference.ipynb
-    Model Registry-იდან საუკეთესო მოდელის ჩამოტვირთვა, test set-ზე პროგნოზი, submission.csv გენერაცია
-data/train.csv
-    სატრენინგო მონაცემები (1460 სახლი)
-data/test.csv
+
 
 
 მონაცემთა გაწმენდა
