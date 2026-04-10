@@ -105,7 +105,7 @@ TotalSF ყველაზე მაღალ კავშირს გამო
 
 ყველა ექსპერიმენტი დარეგისტრირდა MLflow-ში DagsHub-ზე. თითოეული run-ისთვის დავლოგე: მოდელის ტიპი, ჰიპერპარამეტრები, train_rmse, val_rmse და მოდელის არტეფაქტი
 
-
+---
 ## ექსპერიმენტი 1
 ## Linear Regression 
 
@@ -120,7 +120,7 @@ model = LinearRegression()
 
 ანალიზი: პირველი მოდელი გავუშვი Baseline-ის სახით — იმის გასაგებად, საიდან ვიწყებთ. Train და Val RMSE ორივე მაღალია, gap კი პატარა (0.04), რაც underfitting-ის ნიშანია. Linear Regression ცდილობს პირდაპირი ხაზით აღწეროს სახლების ფასების დამოკიდებულება, მაგრამ ეს მონაცემები ბევრად უფრო რთულ, არახაზოვან პატერნებს მიჰყვება. მოდელი ბევრ კავშირს ვერ "ხედავს".
 
-
+---
 ## ექსპერიმენტი 2
 ## Decision Tree (Overfit)
 ```python
@@ -132,7 +132,7 @@ model = DecisionTreeRegressor(max_depth=None, random_state=42)
 | შედეგი | 0.0000 | 0.2078 | **0.2078** |
 
 ანალიზი: max_depth=None-ით Decision Tree-მ სრულყოფილად დაიმახსოვრა ყველა training სახლი — Train RMSE = 0.0, ანუ ყველა პროგნოზი ზუსტი იყო. მაგრამ Val RMSE = 0.2078 — ეს ყველა მოდელს შორის ყველაზე ცუდი შედეგია. ეს არის overfitting-ის ყველაზე კარგი მაგალითი — მოდელმა training მონაცემები "დაიზეპირა" გავრცელების ნაცვლად.
-
+---
 
 ## ექსპერიმენტი 3 
 ## Decision Tree (Tuned)
@@ -146,6 +146,8 @@ model = DecisionTreeRegressor(max_depth=5, random_state=42)
  
 ანალიზი: სიღრმის `max_depth=5`-ით შეზღუდვით Train RMSE გაიზარდა (0.0 → 0.1504) მაგრამ Val RMSE **მნიშვნელოვნად გაუმჯობესდა** (0.2078 → 0.1974). Gap შემცირდა 0.2078-დან 0.047-მდე — overfitting ბევრად ნაკლებია. Decision Tree მაინც ჩამოუვარდება ყველა სხვა კომპლექსურ მოდელს, რადგან ის ერთი ხეა — ბევრი pattern ვერ ისწავლა.
  
+
+---
 ## ექსპერიმენტი 4 
 ## Random Forest (Overfit)
  
@@ -277,7 +279,7 @@ model = Ridge(alpha=100)
  
 🔗 **ექსპერიმენტების ბმული:** [https://dagshub.com/karev23/ML-HW-1/experiments](https://dagshub.com/karev23/ML-HW-1/experiments)
  
-**დარეგისტრირებული მოდელი:** `house-prices-best-model` (Version 2)
+**დარეგისტრირებული მოდელი:** `house-prices-best-model` (Version 3)
  
 თითოეულ run-ში დაილოგა:
  
@@ -289,5 +291,5 @@ model = Ridge(alpha=100)
 | `val_rmse` | validation set-ზე RMSE (log სივრცეში) |
 | model artifact | sklearn მოდელი `.pkl` ფორმატში |
  
-**Model Registry:** საუკეთესო Gradient Boosting მოდელი (`run_id: 867976603a40454183ac933e1aaebb17`) Model Registry-ში დარეგისტრირდა სახელით `house-prices-best-model`, Version 2.
+**Model Registry:** საუკეთესო Gradient Boosting მოდელი (`run_id: 867976603a40454183ac933e1aaebb17`) Model Registry-ში დარეგისტრირდა სახელით `house-prices-best-model`, Version 3.
 
